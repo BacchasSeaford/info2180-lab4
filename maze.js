@@ -18,6 +18,7 @@ function glow_Red(){
 				{				
 					wb[k].setAttribute('class','boundary youlose');
 					p += 1;
+					document.getElementById('status').innerHTML="You lose";
 					
 				} 
 			});
@@ -28,8 +29,12 @@ function end(){
 	var end1 = document.getElementById("end");
 	console.log(p)
 	 end1.addEventListener("mouseover", function finish(){
+		 var result = document.getElementById("status");
 		if ( p === 0){ 		   
-			alert("You won");
+			result.innerHTML= "You win";
+			}
+		else {
+			result.innerHTML="You lose";
 		}
 	 });
 }
@@ -40,8 +45,9 @@ function start(){
 		start.addEventListener('click', function clearwall(){
 			for (var k = 0; k < reseet.length; k++)
 			{				
-				reseet[k].setAttribute('class','boundary');		
+				reseet[k].setAttribute('class','boundary');				
 			} 
 				p = 0;
+				document.getElementById('status').innerHTML="Move your mouse over the \"S\" to begin";
 			});	
 }
